@@ -38,12 +38,12 @@ def show_kurva_bezier(titik_kurva, titik_tengah, p0, p1, p2):
     x_tengah = [titik[0] for titik in titik_tengah]
     y_tengah = [titik[1] for titik in titik_tengah]
 
-    plt.plot(x_kurva, y_kurva, label="Kurva Bézier", color='blue')
+    plt.plot(x_kurva, y_kurva, label="Kurva", color='blue')
     plt.scatter(x_tengah, y_tengah, color='pink', label="Titik Tengah")
-    plt.scatter([p0[0], p1[0], p2[0]], [p0[1], p1[1], p2[1]], color='red', label="Titik Kontrol")
-    plt.xlabel('Sumbu X')
-    plt.ylabel('Sumbu Y')
-    plt.title('Kurva Bézier dengan Titik Kontrol dan Titik Tengah')
+    plt.scatter([p0[0], p1[0], p2[0]], [p0[1], p1[1], p2[1]], color='red', label="Titik Awal")
+    plt.xlabel('X')
+    plt.ylabel('Y')
+    plt.title('Kurva Bézier Ceunah')
     plt.legend()
     plt.grid(True)
     plt.axis('equal')
