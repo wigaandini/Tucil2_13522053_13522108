@@ -58,6 +58,6 @@ t = float(input("Nilai t (0 <= t <= 1): "))
 
 titik_kurva, titik_tengah, waktu_eksekusi = kurva_bezier(p0, p1, p2, i, t)
 print("Titik Kurva Bézier:", titik_kurva)
-print("Waktu Eksekusi:", waktu_eksekusi, "detik")
+print("Waktu Eksekusi:", waktu_eksekusi * 1000, "ms")
 
 show_kurva_bezier(titik_kurva, titik_tengah, p0, p1, p2)
