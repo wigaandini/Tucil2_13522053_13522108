@@ -46,8 +46,8 @@ def bf_kurva(p0, p1, p2, i, t):
         else:
             temp_intermediate = []
             while (len(intermediate_points) != 0):
-                print(f"Temp result: {temp_result}")
-                print(f"Intermediate points: {intermediate_points}")
+                # print(f"Temp result: {temp_result}")
+                # print(f"Intermediate points: {intermediate_points}")
                 temp_intermediate.append(mid_point(temp_result[0], intermediate_points[0], t))
                 if (len(temp_intermediate) % 2 == 1):
                     temp_result.pop(0)
@@ -94,7 +94,7 @@ def show_kurva_bezier(titik_kurva, titik_tengah, p0, p1, p2):
     plt.scatter([p0[0], p1[0], p2[0]], [p0[1], p1[1], p2[1]], color='red', label="Titik Awal")
     plt.xlabel('X')
     plt.ylabel('Y')
-    plt.title('Kurva Bézier Ceunah')
+    plt.title('Kurva Bézier Brute Force')
     plt.legend()
     plt.grid(True)
     plt.axis('equal')
@@ -110,6 +110,6 @@ t = float(input("Nilai t (0 <= t <= 1): "))
 # titik_kurva, titik_tengah, waktu_eksekusi = kurva_bezier(p0, p1, p2, i, t)
 titik_kurva, waktu_eksekusi = kurva_bezier2(p0, p1, p2, i, t)
 print("Titik Kurva Bézier:", titik_kurva)
-print("Waktu Eksekusi:", waktu_eksekusi, "detik")
+print("Waktu Eksekusi:", waktu_eksekusi * 1000, "ms")
 
 show_kurva_bezier(titik_kurva, titik_kurva, p0, p1, p2)

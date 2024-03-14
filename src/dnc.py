@@ -43,7 +43,7 @@ def show_kurva_bezier(titik_kurva, titik_tengah, p0, p1, p2):
     plt.scatter([p0[0], p1[0], p2[0]], [p0[1], p1[1], p2[1]], color='red', label="Titik Awal")
     plt.xlabel('X')
     plt.ylabel('Y')
-    plt.title('Kurva Bézier Ceunah')
+    plt.title('Kurva Bézier Divide n Conquer')
     plt.legend()
     plt.grid(True)
     plt.axis('equal')
