@@ -48,4 +48,3 @@ def show_kurva_bezier_dnc(p0, p1, p2, iterations, dnc):
     plt.grid(True)
     plt.axis('equal')
     plt.show()
-    
