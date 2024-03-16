@@ -31,8 +31,6 @@ while True:
 points = input_points()
 i, t = input_iteration_and_t(choice)
 
-# titik_kurva, titik_tengah, waktu_eksekusi = kurva_bezier(p0, p1, p2, i, t)
-
 
 if choice == 1:
     # bruteforce
