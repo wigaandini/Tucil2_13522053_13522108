@@ -1,5 +1,3 @@
-from bezier2 import *
-
 def input_points():
     n = int(input("Jumlah titik: "))
     points = []
@@ -12,16 +10,10 @@ def input_points():
             points.append(tuple(map(float, input(f"Koordinat titik kontrol {i} (pisahkan dengan spasi): ").split())))
     return points
 
-
-def input_iteration_and_t():
+def input_iteration_and_t(choice):
     i = int(input("Jumlah iterasi: "))
-    t = float(input("Nilai t (0 <= t <= 1): "))
+    if choice == 1:
+        t = float(input("Nilai t (0 <= t <= 1): "))
+    else :
+        t = 0.5
     return i, t
-
-
-
-points = input_points()
-i, t = input_iteration_and_t()
-
-kurva, titik_tengah = dnc_kurva_n(points, i)
-show_kurva_bezier_dnc(points, i)

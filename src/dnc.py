@@ -1,5 +1,6 @@
 from util import mid_point
 
+# Berlaku hanya untuk tiga titik
 def dnc_kurva(points, i):
     titik_tengah = []
     if i == 0:
