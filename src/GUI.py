@@ -17,7 +17,8 @@ entry.pack()
 textbox = tk.Text(root, height=3, font=('Arial', 12))
 textbox.pack(padx=10, pady=10)
 
-button = tk.Button(root, text="Show Bézier Curve", font=('Arial', 12))
-button.pack(padx=10, pady=10)
+
+btnshow = tk.Button(root, text="Show Bézier Curve", font=('Arial', 12))
+btnshow.pack(padx=10, pady=10)
 
 root.mainloop()
