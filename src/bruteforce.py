@@ -1,7 +1,7 @@
 from util import mid_point
 
 def bf_kurva(points, i, t):
-    result_points = [points[0], points[2]]
+    result_points = [points[0], points[-1]]
     intermediate_points = []
 
     for j in range(i):
