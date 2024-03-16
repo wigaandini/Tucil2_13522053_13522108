@@ -39,7 +39,7 @@ if choice == 1:
     titik_kurva, waktu_eksekusi = kurva_bezier(points, i, t, False)
     print("Titik Akhir Kurva Bézier:", titik_kurva)
     print("Waktu Eksekusi:", waktu_eksekusi, "ms")
-    show_kurva_bezier_bf(points, i, False)
+    show_kurva_bezier(points, i, t, False)
 else :
     # dnc
     print(points)
@@ -47,9 +47,4 @@ else :
     print("Titik Akhir Kurva Bézier:", titik_kurva)
     print(len(titik_kurva))
     print("Waktu Eksekusi:", waktu_eksekusi, "ms")
-    show_kurva_bezier_dnc(points, i, True)
-
-    
-
-
-
+    show_kurva_bezier(points, i, t, True)
