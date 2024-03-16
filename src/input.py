@@ -14,12 +14,12 @@ def input_points():
                 point = tuple(map(float, input(f"Coordinate of control point {i} (separate with space): ").split()))
 
             if len(point) != 2:
-                raise ValueError("Invalid point input. ")
+                raise ValueError("Invalid point input.")
             points.append(point)
             
         return points
     except ValueError as ve:
-        print("Invalid input: ", ve)
+        print("Invalid input.", ve)
         raise SystemExit
     except:
         print("Something went wrong. ")
@@ -34,13 +34,13 @@ def input_iteration_and_t(choice):
         if choice == 1:
             t = float(input("t value (0 <= t <= 1): "))
             if (t < 0 or t > 1):
-                raise ValueError("Invalid t value. ")
+                raise ValueError("Invalid t value.")
         else :
             t = 0.5
         return i, t
     except ValueError as ve:
-        print("Invalid input: ", ve)
+        print("Invalid input.", ve)
         raise SystemExit
     except:
-        print("Something went wrong. ")
+        print("Something went wrong.")
         raise SystemExit
