@@ -33,18 +33,23 @@ i, t = input_iteration_and_t(choice)
 
 # titik_kurva, titik_tengah, waktu_eksekusi = kurva_bezier(p0, p1, p2, i, t)
 
-# bruteforce
-titik_kurva, waktu_eksekusi = kurva_bezier(points, i, t, False)
-print("Titik Akhir Kurva Bézier:", titik_kurva)
-print("Waktu Eksekusi:", waktu_eksekusi, "ms")
-show_kurva_bezier_dnc(points, i, False)
+
+if choice == 1:
+    # bruteforce
+    titik_kurva, waktu_eksekusi = kurva_bezier(points, i, t, False)
+    print("Titik Akhir Kurva Bézier:", titik_kurva)
+    print("Waktu Eksekusi:", waktu_eksekusi, "ms")
+    show_kurva_bezier_bf(points, i, False)
+else :
+    # dnc
+    print(points)
+    titik_kurva, waktu_eksekusi = kurva_bezier(points, i, t, True)
+    print("Titik Akhir Kurva Bézier:", titik_kurva)
+    print(len(titik_kurva))
+    print("Waktu Eksekusi:", waktu_eksekusi, "ms")
+    show_kurva_bezier_dnc(points, i, True)
+
+    
 
 
-# dnc
-print(points)
-# titik_kurva, waktu_eksekusi = kurva_bezier(points, i, t, True)
-# print("Titik Akhir Kurva Bézier:", titik_kurva)
-# print(len(titik_kurva))
-# print("Waktu Eksekusi:", waktu_eksekusi, "ms")
-# show_kurva_bezier_dnc(points, i, True)
 

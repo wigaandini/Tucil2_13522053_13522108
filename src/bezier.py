@@ -36,16 +36,35 @@ def show_kurva_bezier_dnc(points, iterations, dnc):
     plt.axis('equal')
     plt.show()
 
-def show_kurva_bezier_bf(titik_kurva, titik_tengah, p0, p1, p2):
+
+import matplotlib.pyplot as plt
+
+def show_kurva_bezier_bf(titik_kurva, titik_tengah, titik_awal):
+    if not isinstance(titik_kurva, list):
+        titik_kurva = [titik_kurva]
+    if not isinstance(titik_tengah, list):
+        titik_tengah = [titik_tengah]
+    if not isinstance(titik_awal, list):
+        titik_awal = [titik_awal]
+
     x_kurva = [titik[0] for titik in titik_kurva]
     y_kurva = [titik[1] for titik in titik_kurva]
 
-    x_tengah = [titik[0] for titik in titik_tengah]
-    y_tengah = [titik[1] for titik in titik_tengah]
+    if len(titik_tengah) > 0:
+        x_tengah = [titik[0] for titik in titik_tengah]
+        y_tengah = [titik[1] for titik in titik_tengah]
+    else:
+        x_tengah, y_tengah = [], []
+
+    if len(titik_awal) > 0:
+        x_awal = [titik[0] for titik in titik_awal]
+        y_awal = [titik[1] for titik in titik_awal]
+    else:
+        x_awal, y_awal = [], []
 
     plt.plot(x_kurva, y_kurva, label="Kurva", color='blue')
     plt.scatter(x_tengah, y_tengah, color='pink', label="Titik Tengah")
-    plt.scatter([p0[0], p1[0], p2[0]], [p0[1], p1[1], p2[1]], color='red', label="Titik Awal")
+    plt.scatter(x_awal, y_awal, color='red', label="Titik Awal")
     plt.xlabel('X')
     plt.ylabel('Y')
     plt.title('Kurva Bézier')
@@ -53,3 +72,4 @@ def show_kurva_bezier_bf(titik_kurva, titik_tengah, p0, p1, p2):
     plt.grid(True)
     plt.axis('equal')
     plt.show()
+
