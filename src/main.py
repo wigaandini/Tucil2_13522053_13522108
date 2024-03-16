@@ -12,22 +12,32 @@ def input_points():
             points.append(tuple(map(float, input(f"Koordinat titik kontrol {i} (pisahkan dengan spasi): ").split())))
     return points
 
-def input_iteration_and_t():
+def input_iteration_and_t(choice):
     i = int(input("Jumlah iterasi: "))
-    t = float(input("Nilai t (0 <= t <= 1): "))
+    if choice == 1:
+        t = float(input("Nilai t (0 <= t <= 1): "))
+    else :
+        t = 0.5
     return i, t
 
 # Example usage:
+while True:
+    choice = input("Masukkan metode (1: brute force, 2: divide and conquer): ")
+    if choice.isdigit():
+        choice = int(choice)
+        if choice in [1, 2]:
+            break
+    print("Masukkan harus berupa angka 1 atau 2. Silakan coba lagi.")
 points = input_points()
-i, t = input_iteration_and_t()
+i, t = input_iteration_and_t(choice)
 
 # titik_kurva, titik_tengah, waktu_eksekusi = kurva_bezier(p0, p1, p2, i, t)
 
 # bruteforce
-# titik_kurva, waktu_eksekusi = kurva_bezier(p0, p1, p2, i, t, False)
+# titik_kurva, waktu_eksekusi = kurva_bezier(points, i, t, False)
 # print("Titik Akhir Kurva Bézier:", titik_kurva)
 # print("Waktu Eksekusi:", waktu_eksekusi, "ms")
-# show_kurva_bezier_bf(p0, p1, p2, i, False)
+# show_kurva_bezier_dnc(points, i, False)
 
 
 # dnc
