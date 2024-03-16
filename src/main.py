@@ -2,14 +2,14 @@ from bezier import *
 from input import *
 
 print()
-print("                           Welcome to Bézier Curve Maker!                                 \n")
+print("                         Welcome to Bézier Curve Generator!                                 \n")
 print("██████╗ ███████╗███████╗██╗███████╗██████╗      ██████╗██╗   ██╗██████╗ ██╗   ██╗███████╗")
 print("██╔══██╗██╔════╝╚══███╔╝██║██╔════╝██╔══██╗    ██╔════╝██║   ██║██╔══██╗██║   ██║██╔════╝")
 print("██████╔╝█████╗    ███╔╝ ██║█████╗  ██████╔╝    ██║     ██║   ██║██████╔╝██║   ██║█████╗")
 print("██╔══██╗██╔══╝   ███╔╝  ██║██╔══╝  ██╔══██╗    ██║     ██║   ██║██╔══██╗╚██╗ ██╔╝██╔══╝")
 print("██████╔╝███████╗███████╗██║███████╗██║  ██║    ╚██████╗╚██████╔╝██║  ██║ ╚████╔╝ ███████╗")
 print("╚═════╝ ╚══════╝╚══════╝╚═╝╚══════╝╚═╝  ╚═╝     ╚═════╝ ╚═════╝ ╚═╝  ╚═╝  ╚═══╝  ╚══════╝\n")
-print("This program is used to create Bézier Curve using divide and conquer algorithm.")
+print("     This program is used to create Bézier Curve using divide and conquer algorithm.")
 print("--------------------------------------------------------------------------------------------")
 print("                                 Wiga   -   Neo")
 print("                               13522053 - 13522108")
