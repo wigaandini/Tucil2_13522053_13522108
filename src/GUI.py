@@ -3,9 +3,11 @@ from tkinter import messagebox
 from bezier import *
 from PIL import Image, ImageTk
 
+
 entry_points = None
 entry_iterations = None
 input_points = []
+
 
 def create_input(frame, label, row, column):
     label = tk.Label(frame, text=label, bg="#f9e9f3", anchor='center', justify='center')
@@ -13,6 +15,7 @@ def create_input(frame, label, row, column):
     entry = tk.Entry(frame, justify='center')
     entry.grid(row=row, column=column+1, sticky='e')
     return entry
+
 
 def generate_bezier_curve():
     try:
@@ -25,6 +28,7 @@ def generate_bezier_curve():
         show_kurva_bezier(points, iterations, t=0.5, dnc=True)
     except Exception as e:
         messagebox.showerror("Error", str(e))
+
 
 def main_display():
     global entry_points, entry_iterations, input_points
@@ -77,6 +81,7 @@ background_photo = ImageTk.PhotoImage(background_image)
 background_label = tk.Label(root, image=background_photo)
 background_label.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 root.geometry("1280x720")
+
 
 # Main display
 start_button = tk.Button(root, text="Let's make bezier curve!", command=main_display, width=20, height=2, bg="#cc98aa")
