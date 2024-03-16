@@ -17,7 +17,7 @@ def bf_kurva(points, i, t):
                 else:
                     intermediate_points.pop(0)
             intermediate_points = temp_intermediate.copy()
-
+    
         temp_result = []
         temp_result.append(result_points[0])
         for l in range(len(intermediate_points) - 1):
