@@ -11,15 +11,12 @@ def bf_kurva(points, i, t):
         else:
             temp_intermediate = []
             while (len(intermediate_points) != 0):
-                # print(f"Temp result: {temp_result}")
-                # print(f"Intermediate points: {intermediate_points}")
                 temp_intermediate.append(mid_point(temp_result[0], intermediate_points[0], t))
                 if (len(temp_intermediate) % 2 == 1):
                     temp_result.pop(0)
                 else:
                     intermediate_points.pop(0)
             intermediate_points = temp_intermediate.copy()
-            # print(f"Intermediate points: {intermediate_points}")
 
         temp_result = []
         temp_result.append(result_points[0])

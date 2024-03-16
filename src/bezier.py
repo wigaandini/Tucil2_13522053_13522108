@@ -1,5 +1,6 @@
 from bruteforce import bf_kurva
 from dnc import dnc_kurva
+from dnc_n import dnc_kurva_n
 import numpy as np
 import matplotlib.pyplot as plt
 import time
@@ -7,7 +8,7 @@ import time
 def kurva_bezier(points, i, t, dnc):
     start_time = time.time()
     if (dnc):
-        titik_kurva, titik_tengah = dnc_kurva(points, i)
+        titik_kurva, titik_tengah = dnc_kurva_n(points, i)
     else:
         titik_kurva = bf_kurva(points, i, t)
     end_time = time.time()
