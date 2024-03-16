@@ -3,7 +3,7 @@ from util import mid_point
 # Berlaku untuk n titik
 def dnc_kurva_n(points, i):
     titik_tengah = []
-    if i == 0:
+    if (i == 0 or len(points) == 2):
         return [points[0], points[-1]], titik_tengah
     
 
