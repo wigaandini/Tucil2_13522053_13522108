@@ -67,10 +67,10 @@ def main_display():
 
     entry_points.bind("<FocusOut>", lambda event: create_entry_points())
 
-    entry_iterations = create_input(frame, "Number of Iteration:", 7, 0)
+    entry_iterations = create_input(frame, "Number of Iteration:", 20, 0)
 
     show_button = tk.Button(frame, text="Show the Bézier Curve", command=generate_bezier_curve, width=20, height=2, bg="#cc98aa")
-    show_button.grid(row=9, column=0, columnspan=2, pady=10)
+    show_button.grid(row=100, column=0, columnspan=2, pady=10)
 
 
 # Initial display
