@@ -90,3 +90,15 @@ Program ini mengimplementasikan algoritma *Divide and Conquer* untuk pembentukan
 7. Input jumlah iterasi yang diinginkan.
 8. Tekan tombol 'Show the Bézier Curve'.
 9. Jika semua tipe input benar, maka program akan menampilkan animasi pembentukan kurva beserta waktu eksekusi tiap iterasi.
+
+
+## Additional Notes
+Program ini dibuat dan dites menggunakan Python versi 3.10.11
+
+Jika Anda belum menginstal library yang diperlukan, silakan instal terlebih dahulu menggunakan perintah berikut.
+|    Library    |         How to Install          |
+| :-----------: | :-----------------------------: |
+|     numpy     |       `pip install numpy`       |
+|   matplotlib  |     `pip install matplotlib`    |
+|      PIL      |       `pip install Pillow`      |
+|    tkinter    |         `pip install tk`        |
