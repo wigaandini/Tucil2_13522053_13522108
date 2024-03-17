@@ -32,12 +32,18 @@ i, t = input_iteration_and_t(choice)
 if choice == 1:
     # bruteforce
     titik_kurva, waktu_eksekusi = kurva_bezier(points, i, t, False)
-    print("Final Points Bézier Curve", titik_kurva)
     print("Execution Time:", waktu_eksekusi, "ms")
+    if (i <= 10) :
+        print("Final Points Bézier Curve", titik_kurva)
+    else :
+        print("Total Points Bézier Curve:", len(titik_kurva), "points")
     show_kurva_bezier(points, i, t, False)
 else :
     # dnc
     titik_kurva, waktu_eksekusi = kurva_bezier(points, i, t, True)
-    print("Final Points Bézier Curve", titik_kurva)
     print("Execution Time:", waktu_eksekusi, "ms")
+    if (i <= 10) :
+        print("Final Points Bézier Curve", titik_kurva)
+    else :
+        print("Total Points Bézier Curve:", len(titik_kurva), "points")
     show_kurva_bezier(points, i, t, True)

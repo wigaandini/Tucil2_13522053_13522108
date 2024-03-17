@@ -25,9 +25,10 @@ def input_points():
         print("Something went wrong. ")
         raise SystemExit
 
+
 def input_iteration_and_t(choice):
     try:
-        i = int(input("Count of iteration: "))
+        i = int(input("Number of iteration: "))
         if (i < 0):
             raise ValueError("Invalid iteration count. ")
 

@@ -6,7 +6,6 @@ def dnc_kurva_n(points, i):
     if (i == 0 or len(points) == 2):
         return [points[0], points[-1]], titik_tengah
     
-
     intermediate_points = points.copy()
     left_points = [points[0]]
     right_points = [points[-1]]
