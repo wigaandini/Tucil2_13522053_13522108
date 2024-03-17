@@ -20,12 +20,26 @@ def create_input(frame, label, row, column):
 def generate_bezier_curve():
     try:
         n = int(entry_points.get())
+        if n < 2:
+            raise ValueError("Number of points must be at least 2.")
+        
         points = []
         for i in range(n):
-            points.append(tuple(map(float, input_points[i].get().split())))
+            point_str = input_points[i].get().strip()
+            if not point_str:
+                raise ValueError(f"Point {i+1} is empty.")
+            point = tuple(map(float, point_str.split()))
+            if len(point) != 2:
+                raise ValueError(f"Invalid format for point {i+1}. Points should be separated by space.")
+            points.append(point)
+        
         iterations = int(entry_iterations.get())
+        if iterations < 0:
+            raise ValueError("Number of iterations must be at least 0.")
 
         show_kurva_bezier(points, iterations, t=0.5, dnc=True)
+    except ValueError as e:
+        messagebox.showerror("Error", str(e))
     except Exception as e:
         messagebox.showerror("Error", str(e))
 
@@ -69,18 +83,24 @@ def main_display():
     input_points.clear()
 
     def create_entry_points():
-        num_points = int(entry_points.get())
-        for widget in input_points:
-            widget.destroy()
-        input_points.clear()
-        for i in range(num_points):
-            if i == 0:
-                entry = create_input(frame, "Start Point:", i+1, 0)
-            elif i == num_points - 1:
-                entry = create_input(frame, "Final Point:", i+1, 0)
-            else:
-                entry = create_input(frame, f"Control Point {i}:", i+1, 0)
-            input_points.append(entry)
+        try:
+            num_points = int(entry_points.get())
+            if num_points < 2:
+                messagebox.showerror("Error", "Number of points must be at least 2.")
+                return
+            for widget in input_points:
+                widget.destroy()
+            input_points.clear()
+            for i in range(num_points):
+                if i == 0:
+                    entry = create_input(frame, "Start Point:", i + 1, 0)
+                elif i == num_points - 1:
+                    entry = create_input(frame, "Final Point:", i + 1, 0)
+                else:
+                    entry = create_input(frame, f"Control Point {i}:", i + 1, 0)
+                input_points.append(entry)
+        except ValueError:
+            messagebox.showerror("Error", "Invalid input for number of points.")
 
     entry_points.bind("<FocusOut>", lambda event: create_entry_points())
 

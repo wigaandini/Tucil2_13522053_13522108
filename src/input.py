@@ -1,8 +1,12 @@
-def input_points():
+def input_points(choice):
     try:
         n = int(input("Number of points (minimum 2): "))
-        if (n < 2):
-            raise ValueError("Number of points are less than 2. ")
+        if choice == 1:
+            if n not in [2, 3]:
+                raise ValueError("Number of points max 3 for this method.")
+        else:
+            if n < 2:
+                raise ValueError("Number of points must be at least 2.")
 
         points = []
         for i in range(n):
@@ -19,12 +23,12 @@ def input_points():
             
         return points
     except ValueError as ve:
-        print("Invalid input.", ve)
+        print("Invalid input:", ve)
         raise SystemExit
     except:
-        print("Something went wrong. ")
+        print("Something went wrong.")
         raise SystemExit
-
+    
 
 def input_iteration_and_t(choice):
     try:

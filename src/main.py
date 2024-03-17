@@ -26,14 +26,14 @@ while True:
             break
     print("Invalid input. Please input 1 or 2.\n")
 
-points = input_points()
+points = input_points(choice)
 i, t = input_iteration_and_t(choice)
 
 if choice == 1:
     # bruteforce
     titik_kurva, waktu_eksekusi = kurva_bezier(points, i, t, False)
     print("Execution Time:", waktu_eksekusi, "ms")
-    if (i <= 10) :
+    if (i <= 7) :
         print("Final Points Bézier Curve", titik_kurva)
     else :
         print("Total Points Bézier Curve:", len(titik_kurva), "points")
@@ -42,7 +42,7 @@ else :
     # dnc
     titik_kurva, waktu_eksekusi = kurva_bezier(points, i, t, True)
     print("Execution Time:", waktu_eksekusi, "ms")
-    if (i <= 10) :
+    if (i <= 7) :
         print("Final Points Bézier Curve", titik_kurva)
     else :
         print("Total Points Bézier Curve:", len(titik_kurva), "points")
