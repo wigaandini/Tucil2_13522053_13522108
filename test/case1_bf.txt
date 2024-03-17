@@ -1,0 +1,5 @@
+Choose algorithm to use
+1. Brute Force
+2. Divide and Conquer
+Choice: 1
+Number of points (minimum 2): 4

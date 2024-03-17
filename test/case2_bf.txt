@@ -1,0 +1,10 @@
+Choose algorithm to use
+1. Brute Force
+2. Divide and Conquer
+Choice: 1       
+Number of points (minimum 2): 3
+Start point coordinate (separate with space): 5 -2
+Coordinate of control point 1 (separate with space): 10 8
+Final point coordinate (separate with space): 19 -30  
+Number of iteration: 4      
+t value (0 <= t <= 1): 0.3

@@ -1,0 +1,6 @@
+Number of points (minimum 2): 4   
+Start point: 1 5
+Control point 1: -7 20
+Control point 2: 10 -20
+Final point: -15 0
+Number of iteration: 5

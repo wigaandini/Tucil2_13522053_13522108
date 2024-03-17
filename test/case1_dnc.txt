@@ -1,6 +1,0 @@
-Masukkan metode (1: brute force, 2: divide and conquer): 2
-Jumlah titik: 3
-Koordinat titik awal (pisahkan dengan spasi): 2 1
-Koordinat titik kontrol 1 (pisahkan dengan spasi): 5 3
-Koordinat titik akhir (pisahkan dengan spasi): 8 1
-Jumlah iterasi: 3
