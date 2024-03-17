@@ -93,7 +93,7 @@ Program ini mengimplementasikan algoritma *Divide and Conquer* untuk pembentukan
 
 
 ## Additional Notes
-Program ini dibuat dan dites menggunakan Python versi 3.10.11
+Program ini dibuat dan dites menggunakan Python versi 3.10.11.
 Jika Anda belum menginstal library yang diperlukan, silakan instal terlebih dahulu menggunakan perintah berikut.
 |    Library    |         How to Install          |
 | :-----------: | :-----------------------------: |
