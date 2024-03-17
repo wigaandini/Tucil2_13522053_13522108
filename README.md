@@ -34,9 +34,9 @@ Program ini mengimplementasikan algoritma *Divide and Conquer* untuk pembentukan
 │   └─── Laporan
 │                      
 ├───src                             # Program
-│   ├── assets                      # Folder untuk menyimpan result 
-│         ├─── background.png      
-│         └─── background2.png      
+│   └─── assets                     # Folder untuk menyimpan gambar yang digunakan pada GUI 
+│           ├─── background.png      
+│           └─── background2.png      
 │   ├─── bezier.py 
 │   ├─── bruteforce.py 
 │   ├─── dnc_n.py 
