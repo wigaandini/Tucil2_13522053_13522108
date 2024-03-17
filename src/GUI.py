@@ -30,9 +30,26 @@ def generate_bezier_curve():
         messagebox.showerror("Error", str(e))
 
 
-def main_display():
-    global entry_points, entry_iterations, input_points
+def back_to_initial_display():
+    global background_label, start_button, back_button
 
+    label_title.destroy()
+    frame.destroy()
+    entry_points.destroy()
+    entry_iterations.destroy()
+    show_button.destroy()
+    back_button.destroy()
+
+    background_label = tk.Label(root, image=background_photo)
+    background_label.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+    start_button = tk.Button(root, text="Let's make bezier curve!", command=main_display, width=20, height=2, bg="#cc98aa")
+    start_button.place(relx=0.5, rely=0.75, anchor=tk.CENTER)
+
+
+def main_display():
+    global entry_points, entry_iterations, input_points, label_title, frame, show_button, back_button
+
+    # Hide initial display widgets
     background_label.destroy()
     start_button.destroy()
 
@@ -71,6 +88,8 @@ def main_display():
 
     show_button = tk.Button(frame, text="Show the Bézier Curve", command=generate_bezier_curve, width=20, height=2, bg="#cc98aa")
     show_button.grid(row=100, column=0, columnspan=2, pady=10)
+    back_button = tk.Button(root, text="\u2190", font=('Arial', 12), command=back_to_initial_display, width=3, height=1, bg="#cc98aa")
+    back_button.place(relx=0, rely=0, anchor=tk.NW)
 
 
 # Initial display
