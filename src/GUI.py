@@ -56,7 +56,7 @@ def back_to_initial_display():
 
     background_label = tk.Label(root, image=background_photo)
     background_label.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
-    start_button = tk.Button(root, text="Let's make bezier curve!", command=main_display, width=20, height=2, bg="#cc98aa")
+    start_button = tk.Button(root, text="Let's Make Bézier Curve!", command=main_display, width=20, height=2, bg="#cc98aa")
     start_button.place(relx=0.5, rely=0.75, anchor=tk.CENTER)
 
 
