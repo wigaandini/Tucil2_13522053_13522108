@@ -9,4 +9,4 @@ Coordinate of control point 2 (separate with space): -4 -3
 Coordinate of control point 3 (separate with space): 8 1
 Coordinate of control point 4 (separate with space): 20 -7
 Final point coordinate (separate with space): 25 -3
-Number of iteration: 13
+Number of iteration: 9

@@ -59,7 +59,9 @@ Program ini mengimplementasikan algoritma *Divide and Conquer* untuk pembentukan
     ├─── case5_gui.txt
     ├─── case6_bf.txt
     ├─── case7_dnc.txt
+    ├─── case7_gui.txt
     ├─── case8_dnc.txt
+    ├─── case8_gui.txt
     ├─── case9_dnc.txt
     ├─── case10_dnc.txt
     ├─── case11_dnc.txt
