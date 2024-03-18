@@ -1,12 +1,15 @@
 import tkinter as tk
-from tkinter import messagebox
-from bezier import *
+from tkinter import messagebox, filedialog
+import matplotlib.pyplot as plt
 from PIL import Image, ImageTk
+from bezier import *
+from matplotlib.backends.backend_pdf import PdfPages
 
 entry_points = None
 entry_iterations = None
 input_points = []
 waktu_eksekusi_label = None
+save_button = None
 
 
 def create_input(frame, label, row, column):
@@ -17,13 +20,51 @@ def create_input(frame, label, row, column):
     return entry
 
 
+def save_curve(waktu_eksekusi_label, points, iterations, t, dnc):
+    try:
+        filename = filedialog.asksaveasfilename(defaultextension=".pdf", filetypes=[("PDF files", "*.pdf")])
+        if filename:
+            with open(filename, "a") as file:
+                file.write(f"\n\nFinal Execution Time: {waktu_eksekusi_label['text']}")
+
+            plt.figure()
+            colors = plt.cm.viridis(np.linspace(0, 1, iterations + 1))
+            for i in range(iterations + 1):
+                titik_kurva, waktu_eksekusi = kurva_bezier(points, i, t, dnc)
+                x_kurva = [titik[0] for titik in titik_kurva]
+                y_kurva = [titik[1] for titik in titik_kurva]
+
+                if i == iterations:
+                    plt.plot(x_kurva, y_kurva, color='red', label=f"Iteration {i} ({waktu_eksekusi:.2f} ms)")
+                else:
+                    plt.plot(x_kurva, y_kurva, color=colors[i % len(colors)], label=f"Iteration {i} ({waktu_eksekusi:.2f} ms)")
+
+                for point in titik_kurva:
+                    plt.scatter(point[0], point[1], color='#a83d57', zorder=5)
+
+            plt.scatter([point[0] for point in points], [point[1] for point in points], color='red', label="Control Points")
+            plt.xlabel('X')
+            plt.ylabel('Y')
+            plt.title('Bézier Curve Result')
+            plt.legend()
+            plt.grid(True)
+
+            with PdfPages(filename) as pdf:
+                pdf.savefig()
+            plt.close()
+            
+            messagebox.showinfo("Success", "Bézier Curve saved successfully.")
+    except Exception as e:
+        messagebox.showerror("Error", f"An error occurred while saving: {str(e)}")
+
+
 def generate_bezier_curve():
-    global waktu_eksekusi_label
+    global waktu_eksekusi_label, save_button
     try:
         n = int(entry_points.get())
         if n < 2:
             raise ValueError("Number of points must be at least 2.")
-        
+
         points = []
         for i in range(n):
             point_str = input_points[i].get().strip()
@@ -33,16 +74,20 @@ def generate_bezier_curve():
             if len(point) != 2:
                 raise ValueError(f"Invalid format for point {i+1}. Points should be separated by space.")
             points.append(point)
-        
+
         iterations = int(entry_iterations.get())
         if iterations < 0:
             raise ValueError("Number of iterations must be at least 0.")
 
         titik_kurva, waktu_eksekusi = kurva_bezier(points, iterations, 0.5, True)
+
         waktu_eksekusi_label.config(text=f"Execution Time: {waktu_eksekusi:.2f} ms")
-        
-        show_kurva_bezier(points, iterations, t=0.5, dnc=True)
-        
+
+        show_kurva_bezier(points, iterations, 0.5, dnc=True)
+
+        save_button = tk.Button(frame, text="Save Curve", command=lambda: save_curve(waktu_eksekusi_label, points, iterations, 0.5, True), width=20, height=2, bg="#cc98aa")
+        save_button.grid(row=102, column=0, columnspan=2, pady=5)
+
     except ValueError as e:
         messagebox.showerror("Error", str(e))
     except Exception as e:
@@ -63,6 +108,7 @@ def back_to_initial_display():
     background_label.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
     start_button = tk.Button(root, text="Let's Make Bézier Curve!", command=main_display, width=20, height=2, bg="#cc98aa")
     start_button.place(relx=0.5, rely=0.75, anchor=tk.CENTER)
+
 
 
 def main_display():
@@ -112,10 +158,10 @@ def main_display():
 
     show_button = tk.Button(frame, text="Show the Bézier Curve", command=generate_bezier_curve, width=20, height=2, bg="#cc98aa")
     show_button.grid(row=100, column=0, columnspan=2, pady=10)
-    
+
     waktu_eksekusi_label = tk.Label(frame, text="", bg="#f9e9f3")
     waktu_eksekusi_label.grid(row=101, column=0, columnspan=2, pady=5)
-    
+
     back_button = tk.Button(root, text="\u2190", font=('Arial', 12), command=back_to_initial_display, width=3, height=1, bg="#cc98aa")
     back_button.place(relx=0, rely=0, anchor=tk.NW)
 
