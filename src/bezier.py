@@ -32,6 +32,9 @@ def show_kurva_bezier(points, iterations, t, dnc):
             else:
                 plt.plot(x_kurva, y_kurva, color=colors[i % len(colors)], label=f"Iterasi ke-{i} ({waktu_eksekusi:.2f} ms)")
 
+            for point in titik_kurva:
+                plt.scatter(point[0], point[1], color='#a83d57', zorder=5)
+
         plt.scatter([point[0] for point in points], [point[1] for point in points], color='red', label="Control Points")
         plt.xlabel('X')
         plt.ylabel('Y')
@@ -40,7 +43,7 @@ def show_kurva_bezier(points, iterations, t, dnc):
         plt.grid(True)
         plt.axis('equal')
 
-    fig = plt.figure()
+    fig = plt.figure(num='Kurva Bézier Result', figsize=(8, 6))
     update(iterations)
     ani = FuncAnimation(fig, update, frames=iterations + 1, interval=1000, repeat=False)
     plt.show()

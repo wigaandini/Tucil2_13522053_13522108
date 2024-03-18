@@ -3,10 +3,10 @@ from tkinter import messagebox
 from bezier import *
 from PIL import Image, ImageTk
 
-
 entry_points = None
 entry_iterations = None
 input_points = []
+waktu_eksekusi_label = None
 
 
 def create_input(frame, label, row, column):
@@ -18,6 +18,7 @@ def create_input(frame, label, row, column):
 
 
 def generate_bezier_curve():
+    global waktu_eksekusi_label
     try:
         n = int(entry_points.get())
         if n < 2:
@@ -37,7 +38,11 @@ def generate_bezier_curve():
         if iterations < 0:
             raise ValueError("Number of iterations must be at least 0.")
 
+        titik_kurva, waktu_eksekusi = kurva_bezier(points, iterations, 0.5, True)
+        waktu_eksekusi_label.config(text=f"Execution Time: {waktu_eksekusi:.2f} ms")
+        
         show_kurva_bezier(points, iterations, t=0.5, dnc=True)
+        
     except ValueError as e:
         messagebox.showerror("Error", str(e))
     except Exception as e:
@@ -61,9 +66,8 @@ def back_to_initial_display():
 
 
 def main_display():
-    global entry_points, entry_iterations, input_points, label_title, frame, show_button, back_button
+    global entry_points, entry_iterations, input_points, label_title, frame, show_button, back_button, waktu_eksekusi_label
 
-    # Hide initial display widgets
     background_label.destroy()
     start_button.destroy()
 
@@ -108,6 +112,10 @@ def main_display():
 
     show_button = tk.Button(frame, text="Show the Bézier Curve", command=generate_bezier_curve, width=20, height=2, bg="#cc98aa")
     show_button.grid(row=100, column=0, columnspan=2, pady=10)
+    
+    waktu_eksekusi_label = tk.Label(frame, text="", bg="#f9e9f3")
+    waktu_eksekusi_label.grid(row=101, column=0, columnspan=2, pady=5)
+    
     back_button = tk.Button(root, text="\u2190", font=('Arial', 12), command=back_to_initial_display, width=3, height=1, bg="#cc98aa")
     back_button.place(relx=0, rely=0, anchor=tk.NW)
 
@@ -123,7 +131,7 @@ root.geometry("1280x720")
 
 
 # Main display
-start_button = tk.Button(root, text="Let's make bezier curve!", command=main_display, width=20, height=2, bg="#cc98aa")
+start_button = tk.Button(root, text="Let's Make Bézier Curve!", command=main_display, width=20, height=2, bg="#cc98aa")
 start_button.place(relx=0.5, rely=0.75, anchor=tk.CENTER)
 
 root.mainloop()
