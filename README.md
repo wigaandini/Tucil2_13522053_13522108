@@ -85,7 +85,7 @@ Program ini mengimplementasikan algoritma *Divide and Conquer* untuk pembentukan
 ## How to Run (GUI)
 1. Clone repository ini dengan mengetikkan `git clone https://github.com/wigaandini/Tucil2_13522053_13522108` pada terminal.
 2. Pindah ke direktori src dengan `cd src`.
-3. Run file dengan `python GUI.py"`.
+3. Run file dengan `python GUI.py`.
 4. Tekan tombol 'Let's Make Bézier Curve!'.
 5. Input jumlah titik yang diinginkan (n).
 6. Input titik-titik yang diinginkan sejumlah n dengan dipisahkan spasi (e.g. 1 3, -5 0, -2 -19).
